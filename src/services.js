@@ -1,7 +1,7 @@
 import axios from "axios";
 import io from 'socket.io-client';
 
-const BASE_URL = 'https://mac-chat-api-copy.herokuapp.com';
+const BASE_URL = 'https://mac-chat-api-copy.herokuapp.com/v1';
 const URL_ACCOUNT = `${BASE_URL}/account`;
 const URL_LOGIN = `${URL_ACCOUNT}/login`;
 const URL_REGISTER = `${URL_ACCOUNT}/register`;
