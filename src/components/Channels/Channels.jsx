@@ -28,13 +28,13 @@ const Channels = ({ unread }) => {
         setChannels(res);
         appSetChannel(res[0]);
     })
-  }, []);
+  }, [appSetChannel, chatService]);
 
   useEffect(() => {
     socketService.getChannel(channelList => {
       setChannels(channelList)
     })
-  }, []);
+  }, [socketService]);
 
   useEffect(() => {
     const { _id, name, email, avatarName, avatarColor } = authService;
@@ -65,7 +65,7 @@ const Channels = ({ unread }) => {
     setModal(false);
   }
 
-  const { name, email, avatarName, avatarColor } = userInfo;
+  const { name } = userInfo;
 
   return (
     <>

@@ -16,7 +16,7 @@ const Chats = ({ chats }) => {
     avatarName: authService.avatarName,
     avatarColor: authService.avatarColor
   }
-  const [userInfo, setUserInfo] = useState(INIT_STATE);
+  const [ setUserInfo ] = useState(INIT_STATE);
 
   useEffect(() => {
     setMessages(chats);
@@ -27,7 +27,7 @@ const Chats = ({ chats }) => {
         chatService.findAllMessagesForChannel(appSelectedChannel.id)
         .then(res => setMessages(res));
     }
-  }, [appSelectedChannel]);
+  }, [appSelectedChannel, chatService]);
 
   useEffect(() => {
     socketService.getUserTyping(users => {
@@ -46,7 +46,7 @@ const Chats = ({ chats }) => {
         setTypingMessage('');
       }
     })
-  }, [appSelectedChannel]);
+  }, [appSelectedChannel, authService.name, socketService]);
 
   useEffect(() => {
     const { _id, name, email, avatarName, avatarColor } = authService;
@@ -57,7 +57,7 @@ const Chats = ({ chats }) => {
       avatarName,
       avatarColor,
     });
-  }, [authService])
+  }, [authService, setUserInfo])
 
   const onTyping = ({target: {value}}) => {
     if (!value.length) {
@@ -84,8 +84,6 @@ const Chats = ({ chats }) => {
     socketService.stopTyping(authService.name);
     setMessageBody('');
   }
-
-  const { name, email, avatarName, avatarColor } = userInfo;
 
   return (
     <div className='chat'>

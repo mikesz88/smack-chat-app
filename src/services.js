@@ -4,7 +4,6 @@ import io from 'socket.io-client';
 const BASE_URL = 'http://localhost:3005/v1';
 const URL_ACCOUNT = `${BASE_URL}/account`;
 const URL_LOGIN = `${URL_ACCOUNT}/login`;
-const URL_LOGOUT = `${URL_ACCOUNT}/logout`;
 const URL_REGISTER = `${URL_ACCOUNT}/register`;
 
 const URL_USER = `${BASE_URL}/user`;

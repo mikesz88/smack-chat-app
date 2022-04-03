@@ -5,7 +5,6 @@ import UserAvatar from '../UserAvatar/UserAvatar';
 import './ChatApp.css'
 import { useNavigate, useLocation } from 'react-router-dom'
 import Channels from '../Channels/Channels';
-import socket from 'socket.io-client/lib/socket';
 import Chats from '../Chats/Chats';
 import AvatarList from '../AvatarList/AvatarList';
 import Alert from '../Alert/Alert';
@@ -48,7 +47,7 @@ const ChatApp = () => {
   useEffect(() => {
     socketService.establishConnection();
     return () => socketService.closeConnection();
-  }, []);
+  }, [socketService]);
 
   useEffect(() => {
     socketService.getChatMessage((newMessage, messages) => {
@@ -59,7 +58,7 @@ const ChatApp = () => {
         setUnreadChannels(chatService.unreadChannels);
       }
     })
-  }, []);
+  }, [chatService.selectedChannel.id, chatService.unreadChannels, socketService]);
 
   useEffect(() => {
     setEditProfile(false);
