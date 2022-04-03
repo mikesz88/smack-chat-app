@@ -135,18 +135,6 @@ export class AuthService extends User {
             throw error;
         }
     }
-
-    // async logoutAccount() {
-    //     const headers = this.getBearerHeader();
-    //     try {
-    //         const response = await axios.get(URL_LOGOUT, { headers });
-    //         this.logoutUser();
-    //         console.log(response);
-    //     } catch (error) {
-    //         console.error(error);
-    //         throw error;
-    //     }
-    // }
     
     async findUserByEmail() {
         const headers = this.getBearerHeader();
