@@ -1,7 +1,7 @@
 import axios from "axios";
 import io from 'socket.io-client';
 
-const BASE_URL = 'https://mac-chat-api-copy.herokuapp.com/v1';
+const BASE_URL = 'https://mac-chat-api-copy.herokuapp.com/';
 const URL_ACCOUNT = `${BASE_URL}/account`;
 const URL_LOGIN = `${URL_ACCOUNT}/login`;
 const URL_REGISTER = `${URL_ACCOUNT}/register`;
@@ -213,7 +213,7 @@ export class ChatService {
 }
 
 export class SocketService {
-    socket = io('http://localhost:3005/');
+    socket = io('https://mac-chat-api-copy.herokuapp.com/');
     constructor(chatService) {
         this.chatService = chatService;
     }
