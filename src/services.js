@@ -61,6 +61,7 @@ export class AuthService extends User {
         this.bearerHeader = {
             'Content-Type': 'application/json',
             'Authorization': `bearer ${token}`,
+            "Access-Control-Allow-Origin": "*"
         }
     }
 
