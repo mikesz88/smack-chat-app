@@ -246,6 +246,7 @@ export class SocketService {
     addMessage(messageBody, channelId, user) {
         const { userName, userId, userAvatar, userAvatarColor } = user;
         if (!!messageBody && !!channelId && !!user) {
+            console.log('test');
             this.socket.emit('newMessage', messageBody, userId, channelId, userName, userAvatar, userAvatarColor)
         }
     }
