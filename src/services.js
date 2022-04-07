@@ -59,9 +59,9 @@ export class AuthService extends User {
     setAuthToken(token) { this.authToken = token };
     setBearerHeader(token) {
         this.bearerHeader = {
+            // "Access-Control-Allow-Origin": "*",
             'Content-Type': 'application/json',
-            'Authorization': `bearer ${token}`,
-            "Access-Control-Allow-Origin": "*"
+            'Authorization': `bearer ${token}`
         }
     }
 
@@ -125,6 +125,7 @@ export class AuthService extends User {
         const body = { 'email': email.toLowerCase(), 'password': password };
         try {
             const response = await axios.post(URL_LOGIN, body, { headers });
+            console.log(response.data);
             this.setAuthToken(response.data.token);
             this.setBearerHeader(response.data.token);
             this.setUserEmail(response.data.user);

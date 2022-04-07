@@ -16,7 +16,7 @@ const Chats = ({ chats }) => {
     avatarName: authService.avatarName,
     avatarColor: authService.avatarColor
   }
-  const [ setUserInfo ] = useState(INIT_STATE);
+  const [ userInfo, setUserInfo ] = useState(INIT_STATE);
 
   useEffect(() => {
     setMessages(chats);
