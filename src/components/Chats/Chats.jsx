@@ -10,13 +10,13 @@ const Chats = ({ chats }) => {
   const [messageBody, setMessageBody] = useState('');
   const [typingMessage, setTypingMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const INIT_STATE = {
-    name: authService.name,
-    email: authService.email,
-    avatarName: authService.avatarName,
-    avatarColor: authService.avatarColor
-  }
-  const [ userInfo, setUserInfo ] = useState(INIT_STATE);
+  // const INIT_STATE = {
+  //   name: authService.name,
+  //   email: authService.email,
+  //   avatarName: authService.avatarName,
+  //   avatarColor: authService.avatarColor
+  // }
+  // const [ userInfo, setUserInfo ] = useState(INIT_STATE);
 
   useEffect(() => {
     setMessages(chats);
@@ -48,16 +48,16 @@ const Chats = ({ chats }) => {
     })
   }, [appSelectedChannel, authService.name, socketService]);
 
-  useEffect(() => {
-    const { _id, name, email, avatarName, avatarColor } = authService;
-    setUserInfo({
-      _id,
-      name,
-      email,
-      avatarName,
-      avatarColor,
-    });
-  }, [authService, setUserInfo])
+  // useEffect(() => {
+  //   const { _id, name, email, avatarName, avatarColor } = authService;
+  //   setUserInfo({
+  //     _id,
+  //     name,
+  //     email,
+  //     avatarName,
+  //     avatarColor,
+  //   });
+  // }, [authService, setUserInfo])
 
   const onTyping = ({target: {value}}) => {
     if (!value.length) {
